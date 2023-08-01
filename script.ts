@@ -7,13 +7,13 @@ const minutesHandle = document.querySelector('.m') as HTMLDivElement;
 const hoursHandle = document.querySelector('.h') as HTMLDivElement;
 
 setInterval(() => {
-    const time = new Date;
-    let min = time.getMinutes();
-    let secunds = time.getSeconds();
+    const time: Date = new Date;
+    let min: number = time.getMinutes();
+    let secunds: number = time.getSeconds();
 
-    let clsecundes = time.getSeconds() * 6;
-    let clMinutes = time.getMinutes() * 6;
-    let clHours = time.getHours() * 30;
+    let clsecundes: number = time.getSeconds() * 6;
+    let clMinutes: number = time.getMinutes() * 6;
+    let clHours: number = time.getHours() * 30;
     secundHandle.style.transform = `rotate(${clsecundes}deg)`;
     minutesHandle.style.transform = `rotate(${clMinutes}deg)`;
     hoursHandle.style.transform = `rotate(${clHours}deg)`;
@@ -51,10 +51,10 @@ tabs.forEach(prev => prev.children[0].addEventListener('change', () => {
 const swButtons = document.querySelectorAll('.stopwatch__clock-description div') as NodeListOf<HTMLDivElement>;
 
 let myInterval: number;
-let secundsSt = 0;
-let minutesSt = 0;
-let hoursSt = 0;
-let started = true;
+let secundsSt: number = 0;
+let minutesSt: number = 0;
+let hoursSt: number = 0;
+let started: boolean = true;
 
 const activeSpan = document.querySelector('.tabsLink__span') as HTMLLabelElement;
 document.querySelector('.stopwatch__btn')?.addEventListener('click', () => {
@@ -82,7 +82,7 @@ document.querySelector('.stopwatch__recet')?.addEventListener('click', () => {
     activeSpan.classList.remove('active_clear');
 })
 
-function startTime() {
+function startTime(): void {
     myInterval = setInterval(() => {
         secundsSt++;
         if (secundsSt == 60) {
@@ -99,11 +99,11 @@ function startTime() {
     }, 1000)
 }
 
-function stopTime() {
+function stopTime(): void {
     clearInterval(myInterval);
 }
 
-function recetTime() {
+function recetTime(): void {
     swButtons[0].innerHTML = '0';
     swButtons[1].innerHTML = '0';
     swButtons[2].innerHTML = '0';
